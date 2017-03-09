@@ -28,6 +28,9 @@ def is_palindrome(s):
     """
     pass
 
+print()
+
+
 # Algorithm 1:
 # Reverse the string.
 # Compare the reversed string to the original string.
@@ -69,14 +72,37 @@ def reverse(s):
 print(is_palindrome_v1('noon'))
 print(is_palindrome_v1('racecar'))
 print(is_palindrome_v1('dented'))
+print()
 
 
 # Algorithm 2:
 # Split the string into two halves.
 # Reverse the second half.
 # Compare the first half to the reversed second half.
+def is_palindrome_v2(s):
+    """
+    (str) -> bool
+
+    Return True if and only if s is a palindrome.
+
+    >>> is_palindrome_v2('noon')
+    True
+    >>> is_palindrome_v2('racecar')
+    True
+    >>> is_palindrome_v2('dented')
+    False
+    """
+    # The number of characters in s
+    n = len(s)
+    # Compare the first half of s to the reverse of the second half.
+    # Omit the middle character of an odd-length string.
+    return s[:n // 2] == reverse(s[n - n // 2:])
 
 
+print(is_palindrome_v2('noon'))
+print(is_palindrome_v2('racecar'))
+print(is_palindrome_v2('dented'))
+print()
 # Algorithm 3:
 # Compare the 1st character to the last character.
 # Compare the 2nd character to the second-to-last character.
