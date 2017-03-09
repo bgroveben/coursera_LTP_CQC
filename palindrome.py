@@ -103,9 +103,39 @@ print(is_palindrome_v2('noon'))
 print(is_palindrome_v2('racecar'))
 print(is_palindrome_v2('dented'))
 print()
+
+
 # Algorithm 3:
 # Compare the 1st character to the last character.
 # Compare the 2nd character to the second-to-last character.
 # ...
 # Stop when the middle of the string is reached.
 # For a string with an odd length, the middle character doesn't need to be compared to anything.
+def is_palindrome_v3(s):
+    """
+    (str) -> bool
+
+    Return True if and only if s is a palindrome.
+
+    >>> is_palindrome_v3('noon')
+    True
+    >>> is_palindrome_v3('racecar')
+    True
+    >>> is_palindrome_v3('dented')
+    False
+    """
+    i = 0
+    j = len(s) - 1
+
+    while i < j and s[i] == s[j]:
+        i = i + 1
+        j = j - 1
+    # If i and j meet in the middle and switch positions, then
+    # all characters have been compared and s is a palindrome.
+    return j <= i
+
+
+print(is_palindrome_v3('noon'))
+print(is_palindrome_v3('racecar'))
+print(is_palindrome_v3('dented'))
+print()
