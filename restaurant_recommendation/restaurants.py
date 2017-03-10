@@ -49,8 +49,8 @@ With this data, for a price of '$' and cuisines of ['Chinese', 'Thai'], we would
 """
 
 # The file containing the restaurant data.
-FILENAME = 'restaurants_small.txt'
-
+# FILENAME = 'restaurants_small.txt'
+FILENAME = 'restaurants.txt'
 
 def recommend(file, price, cuisines_list):
     """
@@ -79,7 +79,7 @@ def recommend(file, price, cuisines_list):
     result = build_rating_list(name_to_rating, names_final)
 
     # Return the sorted list and we're done.
-    return result
+    return list(reversed(sorted(result)))
 
 
 def build_rating_list(name_to_rating, names_final):
@@ -94,15 +94,22 @@ def build_rating_list(name_to_rating, names_final):
      'Mexican Grill': 85,
      'Deep Fried Everything': 52}
     >>> names = ['Queen St. Cafe', 'Dumplings R Us']
+    >>> build_rating_list(name_to_rating, names)
     [[82, 'Queen St. Cafe'], [71, 'Dumplings R Us']]
     """
-    pass
+    result = []
+    for name, rating in name_to_rating.items():
+        if name in names_final:
+            result.append([rating, name])
+    return result
+
 
 def filter_by_cuisine(names_matching_price, cuisine_to_names, cuisines_list):
     """
     (list of str, dict of {str: list of str}, list of str) -> list of str
 
-    Return a list of the restaurants that serve the specified cuisine.
+    Return a list of the restaurants in names_matching_price that serve at
+    least one of the cuisines in cuisines_list according to cuisine_to_names.
 
     >>> names = ['Queen St. Cafe', 'Dumplings R Us', 'Deep Fried Everything']
     >>> cuis = 'Canadian': ['Georgie Porgie'],
@@ -115,7 +122,12 @@ def filter_by_cuisine(names_matching_price, cuisine_to_names, cuisines_list):
     >>> filter_by_cuisine(names, cuis, cuisines)
     ['Queen St. Cafe', 'Dumplings R Us']
     """
-    pass
+    result = []
+    for cuisine in cuisines_list:
+        for name in names_matching_price:
+            if name in cuisine_to_names[cuisine]:
+                result.append(name)
+    return result
 
 
 def read_restaurants(file):
@@ -127,6 +139,28 @@ def read_restaurants(file):
     - a dict of {price: list of restaurant names}
     - a dict of {cuisine: list of restaurant names}
     """
+    f = open(file, 'r')
+    reviews = f.read().strip()
+    restaurants = [entry.split('\n') for entry in reviews.split('\n\n')]
+    f.close()
+
     name_to_rating = {}
     price_to_names = {'$': [], '$$': [], '$$$': [], '$$$$': []}
     cuisine_to_names = {}
+
+    for name, rating, price, cuisine in restaurants:
+        name_to_rating[name] = rating
+        price_to_names[price].append(name)
+        name_cuisine = [name, cuisine.split(',')]
+
+        for item in name_cuisine[1]:
+            if item in cuisine_to_names.keys():
+                cuisine_to_names[item].append(name_cuisine[0])
+            else:
+                cuisine_to_names[item] = [name_cuisine[0]]
+
+    return name_to_rating, price_to_names, cuisine_to_names
+
+
+print(recommend(FILENAME, '$', ['Chinese', 'Thai',]))
+print(recommend(FILENAME, '$$$', ['Canadian', 'Pub Food', 'Chinese']))
