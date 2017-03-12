@@ -73,3 +73,41 @@ def is_anagram(s1, s2):
 print(is_anagram("silent", "listen"))
 print(is_anagram("bear", "breach"))
 print()
+
+
+# 3. and 4.
+def count_startswith(L, ch):
+    """
+    (list of str, str) -> int
+
+    Precondition: the length of each item in L is >= 1, and len(ch) == 1.
+
+    Return the number of strings in L that begin with ch.
+
+    >>> count_startswith(['rumba', 'salsa', 'samba'], 's')
+    2
+    """
+    # Use a list accumulator.
+    ch_strings = []
+    # For each item in L, if the item begins with ch, add it to the accumulator.
+    for item in L:
+        if item[0] == ch:
+            ch_strings.append(item)
+    # Return the length of the accumulator.
+    return len(ch_strings)
+
+    startswith = L[:]
+    for item in L:
+        if item.startswith(ch):
+            startswith.remove(item)
+    return len(L) - len(startswith)
+
+    startswith =L[:]
+    for item in L:
+        if not item.startswith(ch):
+            startswith.remove(item)
+    return len(startswith)
+
+
+
+count_startswith(['rumba', 'salsa', 'samba'], 's')
