@@ -52,7 +52,18 @@ def is_anagram(s1, s2):
     >>> is_anagram("bear", "breach")
     False
     """
-    # return sorted(s1) == sorted(s2)
+    # Create a dictionary 𝚍𝟷 in which each key is a letter from 𝚜𝟷 and each value is the number of occurrences
+    # of that letter in 𝚜𝟷.
+    # Create a dictionary 𝚍𝟸 in which each key is a letter from 𝚜𝟸 and each value is the number of occurrences
+    # of that letter in 𝚜𝟸.
+    # If 𝚍𝟷 == 𝚍𝟸, then 𝚜𝟷 is an anagram of 𝚜𝟸.
+
+    # Create a list 𝚜=𝙻𝟷 of the characters in 𝚜𝟷.
+    # Create a list 𝙻𝟸 of the characters in 𝚜𝟸.
+    # Sort both lists.
+    # If 𝙻𝟷 == 𝙻𝟸, 𝚜𝟷 is an anagram of 𝚜𝟸.
+
+    return sorted(s1) == sorted(s2)
 
     d1 = {i: s1.count(i) for i in s1}
     d2 = {i: s2.count(i) for i in s2}
@@ -109,5 +120,42 @@ def count_startswith(L, ch):
     return len(startswith)
 
 
+print(count_startswith(['rumba', 'salsa', 'samba'], 's'))
+print()
 
-count_startswith(['rumba', 'salsa', 'samba'], 's')
+
+# 5.
+# Consider this code, in which s refers to a string:
+def numberfive(s):
+    digits = ""
+    for ch in s:
+        if ch.isdigit():
+            digits = digits + ch
+    return digits
+# Select the code fragment(s) that will produce the same value for digits.
+def numberfive(s):
+    digits = ''
+    for i in range(len(s)):
+        if s[i].isdigit():
+            digits = digits + s[i]
+    return digits
+
+def numberfive(s):
+    indices = []
+    digits = ''
+    for i in range(len(s)):
+        if s[i].isdigit():
+            indices.append(i)
+    for index in indices:
+        digits = digits + s[index]
+    return digits
+
+def numberfive(s):
+    digits = ''
+    for ch in s:
+        if ch in '0123456789':
+            digits = digits + ch
+    return digits
+
+print(numberfive('abc123'))
+print()
