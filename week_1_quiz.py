@@ -159,3 +159,47 @@ def numberfive(s):
 
 print(numberfive('abc123'))
 print()
+
+
+# 6. and 7.
+# Consider this function header and docstring:
+def is_one_to_one(d):
+    """
+    (dict) -> bool
+
+    Return True if and only if no two of d's keys map to the same value.
+    (Translation: Return True if and only if each key in d has a unique value.)
+
+     >>> is_one_to_one({'a': 1, 'b': 2, 'c': 3})
+     True
+     >>> is_one_to_one({'a': 1, 'b': 2, 'c': 1})
+     False
+     >>> is_one_to_one({})
+     True
+    """
+# 6. Select the algorithm(s) that can be used to implement is_one_to_one.
+
+    seen = []  # The values that have been seen so far.
+    for k in d:
+        if d[k] in seen:
+            return False
+        else:
+            seen.append(d[k])
+    return True
+# 7. Select the algorithm that best describes the approach taken in the function defined above.
+
+
+print(is_one_to_one({'a': 1, 'b': 2, 'c': 3}))
+print(is_one_to_one({'a': 1, 'b': 2, 'c': 1}))
+print(is_one_to_one({}))
+
+
+# 8. Which of the following data structures could be used to represent one person's responses to the questions?
+
+# 9. Which of the following data structures could be used to represent all of the cyclists and their times?
+
+# 10. Which data structure will make it easiest to look up the three fastest cyclists?
+
+# 11. Select the algorithm(s) that can determine the city that had the maximum total precipitation in February.
+
+# 12. Select the algorithm(s) that can be used to make a list of the days in which no city had any precipitation.
