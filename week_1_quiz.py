@@ -58,7 +58,7 @@ def is_anagram(s1, s2):
     # of that letter in 𝚜𝟸.
     # If 𝚍𝟷 == 𝚍𝟸, then 𝚜𝟷 is an anagram of 𝚜𝟸.
 
-    # Create a list 𝚜=𝙻𝟷 of the characters in 𝚜𝟷.
+    # Create a list 𝙻𝟷 of the characters in 𝚜𝟷.
     # Create a list 𝙻𝟸 of the characters in 𝚜𝟸.
     # Sort both lists.
     # If 𝙻𝟷 == 𝙻𝟸, 𝚜𝟷 is an anagram of 𝚜𝟸.
@@ -107,6 +107,7 @@ def count_startswith(L, ch):
     # Return the length of the accumulator.
     return len(ch_strings)
 
+# 4. Select the code fragment(s) that correctly implement the function according to the header above.
     startswith = L[:]
     for item in L:
         if item.startswith(ch):
@@ -179,13 +180,44 @@ def is_one_to_one(d):
     """
 # 6. Select the algorithm(s) that can be used to implement is_one_to_one.
 
+    # 6-1. Use a list accumulator to keep track of the values we've seen so far.
     seen = []  # The values that have been seen so far.
+    # 6-2. For each key in d,
     for k in d:
+        # if the value associated with that key has already been seen, return False;
         if d[k] in seen:
             return False
+        # otherwise, append it to the list of values that we've seen so far.
         else:
             seen.append(d[k])
+    # 6-3. Once all of the keys have been processed, return True because we didn't see a duplicate value.
     return True
+
+    # 6-1 Put all of the values from d into a list.
+    v = []
+    for i in d.values():
+        v.append(i)
+    # 6-2 For each value in the list, count how many times it appears in the list.
+    counts = {i: v.count(i) for i in v}
+    # If a value appears more than once in the list, return False.
+    for count in counts.values():
+        if count > 1:
+            return False
+    # 6-3 Once all of the values in the list have been processed, return True because we didn't see a duplicate value.
+    return True
+
+    # 6-1 Put all of the values from d into a list.
+    v = []
+    for i in d.values():
+        v.append(i)
+    # 6-2 Make a copy of that list.
+    dup_v = v.copy()
+    # 6-3 Remove all of the duplicate items from the second list.
+    rmv = set(dup_v)
+    # 6-4 Compare the lengths of the two lists.
+    # If they are equal, return True because that means that there were no duplicate items; otherwise, return False
+    return rmv == v
+
 # 7. Select the algorithm that best describes the approach taken in the function defined above.
 
 
@@ -195,11 +227,45 @@ print(is_one_to_one({}))
 
 
 # 8. Which of the following data structures could be used to represent one person's responses to the questions?
+#### List of str, where each character is either 'Y' or 'N'
+#### dict of {str: list of int}, where each key is a response (either 'Y' or 'N') and each value is a list of questions numbers for which the person provided that response.
 
 # 9. Which of the following data structures could be used to represent all of the cyclists and their times?
+#### A list of [str, float] lists, where each inner list represents [cyclist, time]. The outer list is ordered from fastest time to slowest time.
+#### A dict of {str: float} where each key is a cyclist and each value is a time.
+#### Parallel lists, where one is a 𝚕𝚒𝚜𝚝 𝚘𝚏 𝚜𝚝𝚛 and the other is a 𝚕𝚒𝚜𝚝 𝚘𝚏 𝚏𝚕𝚘𝚊𝚝: the list of cyclists, and the list of their times. The lists are sorted by the order in which the cyclists cross the finish line (which is not the same as how long they took).
 
 # 10. Which data structure will make it easiest to look up the three fastest cyclists?
+#### A list of [str, float] lists, where each inner list represents [cyclist, time]. The outer list is ordered from fastest time to slowest time.
 
+#!#!# 11 IS STILL WRONG #!#!
 # 11. Select the algorithm(s) that can determine the city that had the maximum total precipitation in February.
+# 11-1 Build the weather dictionary.
+# 11-2 Look up key '𝙵𝚎𝚋' in the weather dictionary to get the "city to precipitation" dictionary for February.
+# 11-3 Create a list containing the sum of the precipitation amounts from each of the city precipitation lists for February. Also create a parallel list containing the city names.
+# 11-4 Sort the list containing the sum of the precipitation amounts so that the largest value is last. The answer is the city in the parallel list at the last position.
+
+# 11-1 Build the weather dictionary.
+# 11-2 Look up key '𝙵𝚎𝚋' in the weather dictionary to get the "city to precipitation" dictionary for February.
+# 11-3 Iterate through the cities in that dictionary, calculating the sum of the precipitation amounts for that city. Keep track of the city that has the most precipitation so far.
+# 11-4 Once the iteration is complete, whichever city had the most precipitation is the answer.
+
+# 11-1 Build the weather dictionary.
+# 11-2 Look up key '𝙵𝚎𝚋' in the weather dictionary to get the "city to precipitation" dictionary for February.
+# 11-3 Invert that dictionary so that the keys are the lists of precipitation amounts and the values are the cities.
+# 11-4 For each key in this inverted dictionary, sum the precipitation amounts in that list, and keep track of the list that had the largest sum.
+# 11-5 Once the iteration is complete, whichever list had the most precipitation is the key. To get the answer, look its value up in the inverted dictionary to get the corresponding city name.
 
 # 12. Select the algorithm(s) that can be used to make a list of the days in which no city had any precipitation.
+# 12-1 Build the weather dictionary.
+# 12-2 Create an empty "zero-precipitation" list to accumulate the answer.
+# 12-3 Iterate over the months to get each "city to precipitation" dictionary. For each of these dictionaries:
+#    a) Build a dictionary where each key is a city from the current "city to precipitation" dictionary, and each value is a list of the day numbers on which the city had no precipitation.
+#    b) Iterate over the values in that dictionary to build a list containing the day numbers that appear in all the lists of day numbers.
+#    c) Iterate over the list of day numbers, appending tuples containing the current month name and the day number to the "zero-precipitation" list.
+
+# 12-1 Build the weather dictionary.
+# 12-2 Create a "zero-precipitation" list containing all days of the year from ('𝙹𝚊𝚗', 𝟷) through ('𝙳𝚎𝚌', 𝟹𝟷).
+# 12-3 Iterate over the months to get each "city to precipitation" dictionary. For each of these dictionaries:
+#    a) For each city in the current "city to precipitation" dictionary, iterate over the precipitation amounts. Because we know the current month and day number, we will remove from the "zero-precipitation" list any day that has a non-zero precipitation amount.
+# 12-4. One this process is complete, the "zero-precipitation" list contains only the (month, day number) for days in which no city had precipitation.
