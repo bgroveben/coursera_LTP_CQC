@@ -1,5 +1,7 @@
 ### Testing Automatically Using doctest ###
 
+# For examples, look at the files divisors.py and vowels.py.
+
 # As part of the function design recipe, we include one or two example calls on the function in the doctstring.
 # For example, consider the function collect_vowels():
 
