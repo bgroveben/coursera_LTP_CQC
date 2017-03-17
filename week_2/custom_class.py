@@ -1,4 +1,4 @@
-### Creating YOur Own Types ###
+### Creating Your Own Types ###
 
 # Importing a module
 
