@@ -12,6 +12,7 @@ def get_divisors(num, possible_divisors):
     divisors = []
     for item in possible_divisors:
         if item != 0 and num % item == 0:
+        # Comment supra and uncomment infra if you want to see an error.
         # if num % item ==0:
             divisors.append(item)
     return divisors
