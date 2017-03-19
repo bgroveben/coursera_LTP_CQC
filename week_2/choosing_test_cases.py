@@ -10,7 +10,18 @@ def count_lowercase_vowels(s):
 
     unittest cases will be in TestChoosingTestCases.py (no separate directory for tests -- yet).
 
-    >>> write doctest cases here
+    >>> count_lowercase_vowels('')
+    0
+    >>> count_lowercase_vowels('a')
+    1
+    >>> count_lowercase_vowels('b')
+    0
+    >>> count_lowercase_vowels('pfffft')
+    0
+    >>> count_lowercase_vowels('bandit')
+    2
+    >>> count_lowercase_vowels('aeioua')
+    6
     """
     num_vowels = 0
     for char in s:
@@ -30,7 +41,29 @@ def is_palindrome(s):
 
     unittest cases will be in TestChoosingTestCases.py (no separate directory for tests -- yet).
 
-    >>> write doctest cases here
-
+    >>> is_palindrome('')
+    True
+    >>> is_palindrome('a')
+    True
+    >>> is_palindrome('aa')
+    True
+    >>> is_palindrome('ab')
+    False
+    >>> is_palindrome('aba')
+    True
+    >>> is_palindrome('abc')
+    False
+    >>> is_palindrome('redder')
+    True
+    >>> is_palindrome('reader')
+    False
+    >>> is_palindrome('racecar')
+    True
+    >>> is_palindrome('bananas')
+    False
     """
     return s[::-1] == s
+
+if __name__ == '__main__':
+    import doctest
+    print(doctest.testmod())
