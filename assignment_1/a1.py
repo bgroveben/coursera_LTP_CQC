@@ -75,39 +75,44 @@ def swap_k(L, k):
 
     Swap the first k items of L with the last k items of L.
 
+    >>> nums0 = []
+    >>> swap_k(nums0, 0)
+    >>> nums0
+    []
+
     >>> nums1 = [1, 2, 3, 4, 5]
     >>> swap_k(nums1, 0)
     >>> nums1
     [1, 2, 3, 4, 5]
 
-    >>> nums1 = [1, 2, 3, 4, 5]
-    >>> swap_k(nums1, 1)
-    >>> nums1
+    >>> nums2 = [1, 2, 3, 4, 5]
+    >>> swap_k(nums2, 1)
+    >>> nums2
     [5, 2, 3, 4, 1]
 
-    >>> nums2 = [1, 2, 3, 4, 5, 6, 7]
-    >>> swap_k(nums2, 3)
-    >>> nums2
+    >>> nums3 = [1, 2, 3, 4, 5, 6, 7]
+    >>> swap_k(nums3, 3)
+    >>> nums3
     [5, 6, 7, 4, 1, 2, 3]
 
-    >>> nums3 = [1, 2, 3, 4, 5, 6, 7]
-    >>> swap_k(nums3, 2)
-    >>> nums3
+    >>> nums4 = [1, 2, 3, 4, 5, 6, 7]
+    >>> swap_k(nums4, 2)
+    >>> nums4
     [6, 7, 3, 4, 5, 1, 2]
 
-    >>> nums4 = [1, 2, 3, 4, 5, 6]
-    >>> swap_k(nums4, 1)
-    >>> nums4
+    >>> nums5 = [1, 2, 3, 4, 5, 6]
+    >>> swap_k(nums5, 1)
+    >>> nums5
     [6, 2, 3, 4, 5, 1]
 
-    >>> nums5 = [1, 2, 3, 4, 5, 6, 7, 8]
-    >>> swap_k(nums5, 3)
-    >>> nums5
+    >>> nums6 = [1, 2, 3, 4, 5, 6, 7, 8]
+    >>> swap_k(nums6, 3)
+    >>> nums6
     [6, 7, 8, 4, 5, 1, 2, 3]
 
-    >>> nums6 = [1, 2, 3, 4, 5, 6]
-    >>> swap_k(nums6, 2)
-    >>> nums6
+    >>> nums7 = [1, 2, 3, 4, 5, 6]
+    >>> swap_k(nums7, 2)
+    >>> nums7
     [5, 6, 3, 4, 1, 2]
     """
     if not k:

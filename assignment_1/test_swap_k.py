@@ -5,6 +5,15 @@ import unittest
 class TestSwapK(unittest.TestCase):
     """ Test class for function a1.swap_k. """
 
+    def test_empty_list(self):
+        """
+        Test for an empty list with k equal to zero.
+        """
+        L = []
+        L_expected = []
+        a1.swap_k(L, 0)
+        self.assertEqual(L, L_expected)
+
     def test_odd_num_elements_k_equals_zero(self):
         """
         Test for a list with an odd number of elements with k equal to zero.

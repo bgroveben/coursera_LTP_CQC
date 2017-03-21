@@ -53,6 +53,7 @@ arguments(price_changes)                         Expected Value          Descrip
 
 TestSwap:
 arguments(L, k)                   Expected Value                 Description
+([])                              []                             empty list, k is 0
 ([1, 2, 3, 4, 5], 0)              [1, 2, 3, 4, 5]                odd number of elements, k is 0
 ([1, 2, 3, 4, 5], 1)              [5, 2, 3, 4, 1]                odd number of elements, k is 1
 ([1, 2, 3, 4, 5, 6, 7], 3)        [5, 6, 7, 4, 1, 2, 3]          odd number of elements, k is odd
