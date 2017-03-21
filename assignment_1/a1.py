@@ -45,7 +45,7 @@ def stock_price_summary(price_changes):
 def swap_k(L, k):
     """ (list, int) -> NoneType
 
-    Precondtion: 0 <= k <= len(L) // 2
+    Precondition: 0 <= k <= len(L) // 2
 
     Swap the first k items of L with the last k items of L.
 
