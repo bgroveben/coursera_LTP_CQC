@@ -9,6 +9,15 @@ def num_buses(n):
     >>> num_buses(75)
     2
     """
+    total = 0
+    remaining = n
+
+    while remaining > 0:
+        total += 1
+        remaining -= 50
+
+    return total
+
 
 
 def stock_price_summary(price_changes):
@@ -21,6 +30,16 @@ def stock_price_summary(price_changes):
     >>> stock_price_summary([0.01, 0.03, -0.02, -0.14, 0, 0, 0.10, -0.01])
     (0.14, -0.17)
     """
+    gain, loss = 0, 0
+
+    for price in price_changes:
+        if price < 0:
+            loss += price
+        else:
+            gain += price
+
+    return (gain, loss)
+
 
 
 def swap_k(L, k):
@@ -35,6 +54,11 @@ def swap_k(L, k):
     >>> nums
     [5, 6, 3, 4, 1, 2]
     """
+    first = L[:k]
+    L[:k] = L[-k:]
+    del L[-k:]
+    L.extend(first)
+
 
 
 if __name__ == '__main__':
