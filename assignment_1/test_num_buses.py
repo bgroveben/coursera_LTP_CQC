@@ -45,6 +45,14 @@ class TestNumBuses(unittest.TestCase):
         expected = 2
         self.assertEqual(actual, expected)
 
+    def test_for_multiple_of_fifty_plus_one(self):
+        """
+        Test for the maximum number of people allowed for two buses plus one person.
+        """
+        actual = a1.num_buses(101)
+        expected = 3
+        self.assertEqual(actual, expected)
+
     def test_for_many_people(self):
         """
         Test for many people.

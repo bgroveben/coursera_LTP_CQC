@@ -16,6 +16,8 @@ def num_buses(n):
     2
     >>> num_buses(100)
     2
+    >>> num_buses(101)
+    3
     >>> num_buses(235)
     5
     """
@@ -39,6 +41,12 @@ def stock_price_summary(price_changes):
 
     >>> stock_price_summary([])
     (0, 0)
+    >>> stock_price_summary([0])
+    (0, 0)
+    >>> stock_price_summary([0.05])
+    (0.05, 0)
+    >>> stock_price_summary([-0.05])
+    (0, -0.05)
     >>> stock_price_summary([0, 0, 0, 0, 0, 0, 0])
     (0, 0)
     >>> stock_price_summary([0.01, 0.03, -0.02, -0.14, 0, 0, 0.10, -0.01])
@@ -66,6 +74,11 @@ def swap_k(L, k):
     Precondition: 0 <= k <= len(L) // 2
 
     Swap the first k items of L with the last k items of L.
+
+    >>> nums1 = [1, 2, 3, 4, 5]
+    >>> swap_k(nums1, 0)
+    >>> nums1
+    [1, 2, 3, 4, 5]
 
     >>> nums1 = [1, 2, 3, 4, 5]
     >>> swap_k(nums1, 1)
@@ -97,10 +110,13 @@ def swap_k(L, k):
     >>> nums6
     [5, 6, 3, 4, 1, 2]
     """
-    first = L[:k]
-    L[:k] = L[-k:]
-    del L[-k:]
-    L.extend(first)
+    if not k:
+        L
+    else:
+        first = L[:k]
+        L[:k] = L[-k:]
+        del L[-k:]
+        L.extend(first)
 
 
 

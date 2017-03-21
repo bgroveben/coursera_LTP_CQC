@@ -13,6 +13,30 @@ class TestStockPriceSummary(unittest.TestCase):
         expected = (0, 0)
         self.assertEqual(actual, expected)
 
+    def test_single_item_list_of_zero(self):
+        """
+        Test for a single item list containing zero.
+        """
+        actual = a1.stock_price_summary([0])
+        expected = (0, 0)
+        self.assertEqual(actual, expected)
+
+    def test_single_item_list_of_one_gain(self):
+        """
+        Test for a single item list containing one positive item.
+        """
+        actual = a1.stock_price_summary([0.05])
+        expected = (0.05, 0)
+        self.assertEqual(actual, expected)
+
+    def test_single_item_list_of_one_loss(self):
+        """
+        Test for a single item list containing one negative item.
+        """
+        actual = a1.stock_price_summary([-0.05])
+        expected = (0, -0.05)
+        self.assertEqual(actual, expected)
+
     def test_inputs_are_all_zeros(self):
         """
         Test for list of price change inputs that are all zero.

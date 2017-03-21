@@ -35,12 +35,16 @@ argument(n)                  Expected Value          Description
 50                                  1                threshold for 1 bus
 75                                  2                greater than 1 bus threshold, less than 2 bus threshold
 100                                 2                threshold for 2 buses
+101                                 3                maximum for 2 buses plus one
 235                                 5                test for many people
 
 
 TestStockPriceSummary:
 arguments(price_changes)                         Expected Value          Description
 []                                                (0, 0)                 empty list
+[0]                                               (0, 0)                 single-item list containing zero
+[0.05]                                            (0.05, 0)              single-item list containing one positive item
+[-0.05]                                           (0, -0.05)             single-item list containing one negative item
 [0, 0, 0, 0, 0, 0, 0]                             (0, 0)                 all zeros
 [0.01, 0.03, -0.02, -0.14, 0, 0, 0.10, -0.01]     (0.14, -0.17)          mix of zeros, positive and negative values
 [0.01, 0.03, 0.02, 0.14, 0.10, 0.01]              (0.31, 0)              all positive values
@@ -49,6 +53,7 @@ arguments(price_changes)                         Expected Value          Descrip
 
 TestSwap:
 arguments(L, k)                   Expected Value                 Description
+([1, 2, 3, 4, 5], 0)              [1, 2, 3, 4, 5]                odd number of elements, k is 0
 ([1, 2, 3, 4, 5], 1)              [5, 2, 3, 4, 1]                odd number of elements, k is 1
 ([1, 2, 3, 4, 5, 6, 7], 3)        [5, 6, 7, 4, 1, 2, 3]          odd number of elements, k is odd
 ([1, 2, 3, 4, 5, 6, 7], 2)        [6, 7, 3, 4, 5, 1, 2]          odd number of elements, k is even
