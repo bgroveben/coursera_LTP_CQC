@@ -41,17 +41,17 @@ argument(n)                  Expected Value          Description
 TestStockPriceSummary:
 arguments(price_changes)                         Expected Value          Description
 []                                                (0, 0)                 empty list
-[0, 0, 0, 0, 0, 0, 0]                             (0, 0)                 all zeroes
-[0.01, 0.03, -0.02, -0.14, 0, 0, 0.10, -0.01]     (0.14, -0.17)          mix of zeroes, positive and negative values
-[0.01, 0.03, 0.02, 0.14, 0.10, 0.01]              (0.31, 0)            all positive values
-[-0.01, -0.03, -0.02, -0.14, -0.10, -0.01]        (0, -0.31)           all negative values
+[0, 0, 0, 0, 0, 0, 0]                             (0, 0)                 all zeros
+[0.01, 0.03, -0.02, -0.14, 0, 0, 0.10, -0.01]     (0.14, -0.17)          mix of zeros, positive and negative values
+[0.01, 0.03, 0.02, 0.14, 0.10, 0.01]              (0.31, 0)              all positive values
+[-0.01, -0.03, -0.02, -0.14, -0.10, -0.01]        (0, -0.31)             all negative values
 
 
 TestSwap:
 arguments(L, k)                   Expected Value                 Description
 ([1, 2, 3, 4, 5], 1)              [5, 2, 3, 4, 1]                odd number of elements, k is 1
-([1, 2, 3, 4, 5, 6, 7], 3)        [5, 6, 7, 4, 1, 2, 3]          odd number of elements, k in odd
-([1, 2, 3, 4, 5], 2)              [4, 5, 3, 1, 2]                odd number of elements, k is even
+([1, 2, 3, 4, 5, 6, 7], 3)        [5, 6, 7, 4, 1, 2, 3]          odd number of elements, k is odd
+([1, 2, 3, 4, 5, 6, 7], 2)        [6, 7, 3, 4, 5, 1, 2]          odd number of elements, k is even
 ([1, 2, 3, 4, 5, 6], 1)           [6, 2, 3, 4, 5, 1]             even number of elements, k is 1
 ([1, 2, 3, 4, 5, 6, 7, 8], 3)     [6, 7, 8, 4, 5, 1, 2, 3]       even number of elements, k is odd
 ([1, 2, 3, 4, 5, 6], 2)           [5, 6, 3, 4, 1, 2]             even number of elements, k is even
