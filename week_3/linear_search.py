@@ -22,6 +22,10 @@ def linear_search(L, v):
         return i
 
 
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+    
 # The while loop has two conditions for when to end the loop:
 # 1. We will continue looping while the index i is not equal to the length of the list.
 #    Since the index starts from 0, we will be examining each item in the list in a forward manner.
