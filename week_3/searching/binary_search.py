@@ -3,6 +3,10 @@
 # Instead of searching the list in sequence, binary search starts in the middle and eliminates half
 # of the search items in each subsequent iteration until it finds (or doesn't find) the target value.
 
+# Binary search has an average case runtime of O(log n) (the base-2 logarithm of n).
+# log_2(n) is the number of times we can divide n by 2 in order to reach 1.
+# https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/running-time-of-binary-search
+
 def binary_search(L, v):
     """
     (list, object) -> int
