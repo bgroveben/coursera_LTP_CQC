@@ -27,9 +27,8 @@ class Playlist:
         >>> stompa = song.Song("Serena Ryder", "Stompa", 3, 15)
         >>> playlist = Playlist('Canadian Artists')
         >>> playlist.add(stompa)
-        >>> print(playlist)
-        Canadian Artists (3:15)
-        1. Serena Ryder, Stompa (3:15)
+        >>> playlist.songs[0] == stompa
+        True
         """
 
         self.songs.append(song)
@@ -77,10 +76,10 @@ class Playlist:
         result = self.title + ' (' + minutes + ':' + seconds + ')'
 
         # Append the songs in the playlist.
-        i = 1
+        song_num = 1
         for song in self.songs:
-            result += '\n' + str(i) + '. ' + str(song)
-            i += 1
+            result += '\n' + str(song_num) + '. ' + str(song)
+            song_num += 1
 
         return result
 
