@@ -40,7 +40,7 @@ class Rat:
         """
         (Rat, str, int, int) -> NoneType
 
-        A Rat object initialized with a symbol, location (row, col), and num_sprouts_eaten.
+        A Rat object initialized with a symbol, row location, column location, and num_sprouts_eaten.
 
         >>> testrat = Rat('P',1,4)
         >>> testrat.symbol
@@ -61,10 +61,16 @@ class Rat:
         """
         (Rat, int, int) -> NoneType
 
-        Keep track of the rat's location by row and column.
         Set the rat's row and col instance variables to the given row and column.
+
+        >>> testrat = Rat('P',1,4)
+        >>> testrat.row
+        1
+        >>> testrat.col
+        4
         """
-        pass
+        self.row = row
+        self.col = col
 
     def eat_sprout(self):
         """
@@ -72,23 +78,40 @@ class Rat:
 
         Increment num_sprouts_eaten when the rat eats a sprout.
 
-        >>> testrat = Rat('P',1,4)
-        >>> testrat.num_sprouts_eaten
+        >>> testrat1 = Rat('P',1,4)
+        >>> testrat2 = Rat('J',2,2)
+        >>> testrat1.num_sprouts_eaten
         0
-        >>> testrat.eat_sprout()
-        >>> testrat.num_sprouts_eaten
+        >>> testrat2.num_sprouts_eaten
+        0
+        >>> testrat1.eat_sprout()
+        >>> testrat1.num_sprouts_eaten
         1
+        >>> testrat2.eat_sprout()
+        >>> testrat2.num_sprouts_eaten
+        1
+        >>> testrat1.eat_sprout()
+        >>> testrat1.num_sprouts_eaten
+        2
+        >>> testrat2.eat_sprout()
+        >>> testrat2.num_sprouts_eaten
+        2
         """
         self.num_sprouts_eaten += 1
 
-        def __str__(self):
-            """
-            (Rat) -> str
+    def __str__(self):
+        """
+        (Rat) -> str
 
-            Return a string representation of the rat, in this format:
-            symbol at (row, col) ate num_sprouts_eaten sprouts.
-            """
-            pass
+        Return a string representation of the rat, in this format:
+        symbol at (row, col) ate num_sprouts_eaten sprouts.
+
+        >>> testrat = Rat('J',4,3,num_sprouts_eaten=2)
+        >>> testrat.__str__()
+        'J at (4, 3) ate 2 sprouts.'
+        """
+        return '{0} at ({1}, {2}) ate {3} sprouts.'.format(self.symbol, self.row, self.col, self.num_sprouts_eaten)
+
 
 class Maze:
     """ A 2D maze. """
