@@ -116,7 +116,57 @@ class Rat:
 class Maze:
     """ A 2D maze. """
 
-    # Write your Maze methods here.
+    def __init__(self, maze, rat_1, rat_2, num_sprouts_left=2):
+        """
+        (Maze, list of list of str, Rat, Rat) -> NoneType
+
+        Create Maze object with maze contents, rat_1, rat_2, and number of uneaten sprouts.
+
+        >>> testmaze = Maze([['#', '#', '#', '#', '#', '#', '#'],\
+                             ['#', '.', '.', '.', '.', '.', '#'],\
+                             ['#', '.', '#', '#', '#', '.', '#'],\
+                             ['#', '.', '.', '@', '#', '.', '#'],\
+                             ['#', '@', '#', '.', '@', '.', '#'],\
+                             ['#', '#', '#', '#', '#', '#', '#']],\
+                             Rat('J', 1, 1),\
+                             Rat('P', 1, 4))
+        >>> testmaze.maze
+        [['#', '#', '#', '#', '#', '#', '#'], ['#', '.', '.', '.', '.', '.', '#'], ['#', '.', '#', '#', '#', '.', '#'], ['#', '.', '.', '@', '#', '.', '#'], ['#', '@', '#', '.', '@', '.', '#'], ['#', '#', '#', '#', '#', '#', '#']]
+        >>> print(testmaze.rat_1)
+        J at (1, 1) ate 0 sprouts.
+        >>> print(testmaze.rat_2)
+        P at (1, 4) ate 0 sprouts.
+        >>> testmaze.num_sprouts_left
+        2
+        """
+        self.maze = maze
+        self.rat_1 = rat_1
+        self.rat_2 = rat_2
+        self.num_sprouts_left = num_sprouts_left
+
+    def is_wall():
+        """
+        (Maze, int, int) -> bool
+        """
+        pass
+
+    def get_character():
+        """
+        (Maze, int, int) -> str
+        """
+        pass
+
+    def move():
+        """
+        (Maze, Rat, int, int) -> bool
+        """
+        pass
+
+    def __str__():
+        """
+        (Maze) -> str
+        """
+        pass
 
 
 if __name__ == '__main__':
