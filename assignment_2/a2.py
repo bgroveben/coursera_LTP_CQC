@@ -144,17 +144,69 @@ class Maze:
         self.rat_2 = rat_2
         self.num_sprouts_left = num_sprouts_left
 
-    def is_wall():
+    def is_wall(self, row, col):
         """
         (Maze, int, int) -> bool
-        """
-        pass
 
-    def get_character():
+        Return True iff there is a wall at the given row and column of the maze.
+
+        >>> testmaze = Maze([['#', '#', '#', '#', '#', '#', '#'],\
+                             ['#', '.', '.', '.', '.', '.', '#'],\
+                             ['#', '.', '#', '#', '#', '.', '#'],\
+                             ['#', '.', '.', '@', '#', '.', '#'],\
+                             ['#', '@', '#', '.', '@', '.', '#'],\
+                             ['#', '#', '#', '#', '#', '#', '#']],\
+                             Rat('J', 1, 1),\
+                             Rat('P', 1, 4))
+        >>> testmaze.is_wall(0, 0)
+        True
+        >>> testmaze.is_wall(0, 1)
+        True
+        >>> testmaze.is_wall(5, 6)
+        True
+        >>> testmaze.is_wall(1, 1)
+        False
+        >>> testmaze.is_wall(3, 3)
+        False
+        >>> testmaze.is_wall(4, 5)
+        False
+        """
+        self.row = row
+        self.col = col
+        return self.maze[row][col] == WALL
+
+    def get_character(self, row, col):
         """
         (Maze, int, int) -> str
+
+        Return the character in the maze at the given row and column.
+        If there is a rat at that location, then its character should be returned rather than HALL.
+
+        >>> testmaze = Maze([['#', '#', '#', '#', '#', '#', '#'],\
+                             ['#', '.', '.', '.', '.', '.', '#'],\
+                             ['#', '.', '#', '#', '#', '.', '#'],\
+                             ['#', '.', '.', '@', '#', '.', '#'],\
+                             ['#', '@', '#', '.', '@', '.', '#'],\
+                             ['#', '#', '#', '#', '#', '#', '#']],\
+                             Rat('J', 1, 1),\
+                             Rat('P', 1, 4))
+        >>> testmaze.get_character(1, 1)
+        'J'
+        >>> testmaze.get_character(1, 4)
+        'P'
+        >>> testmaze.get_character(0, 0)
+        '#'
+        >>> testmaze.get_character(3, 3)
+        '@'
+        >>> testmaze.get_character(1, 2)
+        '.'
         """
-        pass
+        if self.rat_1.row == row and self.rat_1.col == col:
+            return RAT_1_CHAR
+        elif self.rat_2.row == row and self.rat_2.col == col:
+            return RAT_2_CHAR
+        else:
+            return self.maze[row][col]
 
     def move():
         """
