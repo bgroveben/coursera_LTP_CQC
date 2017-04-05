@@ -208,11 +208,49 @@ class Maze:
         else:
             return self.maze[row][col]
 
-    def move():
+    def move(self, rat, vertical, horizontal):
         """
         (Maze, Rat, int, int) -> bool
+
+        Move the rat in the given direction, unless there is a wall in the way.
+        Also, check for a Brussels sprout at that location.
+
+        >>> testmaze = Maze([['#', '#', '#', '#', '#', '#', '#'],\
+                             ['#', '.', '.', '.', '.', '.', '#'],\
+                             ['#', '.', '#', '#', '#', '.', '#'],\
+                             ['#', '.', '.', '@', '#', '.', '#'],\
+                             ['#', '@', '#', '.', '@', '.', '#'],\
+                             ['#', '#', '#', '#', '#', '#', '#']],\
+                             Rat('J', 3, 1),\
+                             Rat('P', 1, 4))
+        >>> testmaze.move(testmaze.rat_1, NO_CHANGE, NO_CHANGE)
+        True
+        >>> testmaze.move(testmaze.rat_1, DOWN, NO_CHANGE)
+        True
+        >>> testmaze.move(testmaze.rat_1, NO_CHANGE, RIGHT)
+        False
+        >>> testmaze.move(testmaze.rat_1, UP, NO_CHANGE)
+        True
+        >>> testmaze.move(testmaze.rat_1, NO_CHANGE, LEFT)
+        False
         """
-        pass
+        self.rat = rat
+        self.vertical = vertical
+        self.horizontal = horizontal
+
+        next_row = rat.row + vertical
+        next_col = rat.col + horizontal
+
+        if not self.is_wall(next_row, next_col):
+            rat.row += vertical
+            rat.col += horizontal
+            if self.maze[next_row][next_col] == SPROUT:
+                rat.eat_sprout()
+                self.maze[next_row][next_col] = HALL
+                self.num_sprouts_left -= 1
+            return True
+        return False
+
 
     def __str__():
         """
