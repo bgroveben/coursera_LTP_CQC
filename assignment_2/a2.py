@@ -1,3 +1,6 @@
+###  Instructions for this assignment 'Rat Race' can be found at:            ###
+###  https://www.coursera.org/learn/program-code/programming/6RJls/rat-race  ###
+
 # Do not import any modules. If you do, the tester may reject your submission.
 
 # Constants for the contents of the maze.
@@ -252,11 +255,38 @@ class Maze:
         return False
 
 
-    def __str__():
+    def __str__(self):
         """
         (Maze) -> str
+
+        Return a string representation of the maze.
+
+        >>> testmaze = Maze([['#', '#', '#', '#', '#', '#', '#'],\
+                             ['#', '.', '.', '.', '.', '.', '#'],\
+                             ['#', '.', '#', '#', '#', '.', '#'],\
+                             ['#', '.', '.', '@', '#', '.', '#'],\
+                             ['#', '@', '#', '.', '@', '.', '#'],\
+                             ['#', '#', '#', '#', '#', '#', '#']],\
+                             Rat('J', 1, 1),\
+                             Rat('P', 1, 4))
+        >>> print(testmaze)
+        #######
+        #J..P.#
+        #.###.#
+        #..@#.#
+        #@#.@.#
+        #######
+        J at (1, 1) ate 0 sprouts.
+        P at (1, 4) ate 0 sprouts.
         """
-        pass
+        maze = ""
+
+        for row in range(len(self.maze)):
+            for col in range(len(self.maze[row])):
+                maze += self.get_character(row, col)
+            maze += "\n"
+
+        return "{0}{1}\n{2}".format(maze, self.rat_1, self.rat_2)
 
 
 if __name__ == '__main__':
