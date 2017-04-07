@@ -1,5 +1,11 @@
 ### How To Play Rat Race ###
 
+### For best results, run this game in IDLE. ###
+
+# Start IDLE, open the rat_race.py file and select Run -> Run Module.
+# When prompted to choose a file, select maze.txt (or create your own maze and add it.)
+# Make sure the tkinter GUI window is active by clicing on it, or your keyboard controls won't work.
+
 # The players move Jen and Paul around the maze.
 # They cannot move into walls.
 # If the players try to move the rats into walls, the rats do not move.
@@ -9,7 +15,6 @@
 # When there are no Brussels sprouts left, the game ends.
 # The players can still move the rats around the maze, but there will not be any more Brussels sprouts to eat and so the scores will not change.
 
-### This is the code that is used to display the GUI for the maze game and handle the keyboard input. ###
 ### The players move the rats around using the keyboard. Here are the controls: ###
 ###            Jen        Paul
 # Up            w          i
@@ -17,7 +22,15 @@
 # Left          a          j
 # Right         d          l
 
-### For best results, run this game in IDLE. ###
+# To stop the game, close the tkinter GUI window and exit() IDLE.
+# You can also use the ctrl-c keyboard interrupt.
+
+# If you want to make your own maze, then it must:
+# - be rectangular,
+# - the outside edges must be made up entirely of WALLs, and
+# - the rest of the maze must be made up of WALLs, HALLs, SPROUTs, RAT_1_CHAR, and RAT_2_CHAR.
+
+### This is the code that is used to display the GUI for the maze game and handle the keyboard input. ###
 
 import a2
 import tkinter

@@ -1,5 +1,6 @@
 ###  Instructions for this assignment 'Rat Race' can be found at:            ###
 ###  https://www.coursera.org/learn/program-code/programming/6RJls/rat-race  ###
+###  Game directions are in the rat_race.py file.                            ###
 
 # Do not import any modules. If you do, the tester may reject your submission.
 
